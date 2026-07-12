@@ -33,13 +33,13 @@ const projects: {
     category: "Offshore",
     title: "Deepwater Platform Support",
     location: "Gulf of Guinea, Nigeria",
-    image: "/stitch/stitch-18.jpg",
+    image: "/stitch/stitch-03.jpg",
   },
   {
     category: "Industrial",
     title: "Refinery Infrastructure Upgrade",
     location: "Port Harcourt Complex",
-    image: "/stitch/stitch-19.jpg",
+    image: "/stitch/stitch-22.jpg",
   },
   {
     category: "Marine Logistics",
@@ -51,7 +51,7 @@ const projects: {
     category: "Energy Support",
     title: "Subsea Asset Inspection",
     location: "Bonga Field Operations",
-    image: "/stitch/stitch-21.jpg",
+    image: "/stitch/stitch-18.jpg",
   },
   {
     category: "Offshore",
@@ -105,8 +105,15 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary py-24 text-white lg:py-28">
-        <div className="container-grid max-w-2xl">
+      <section className="relative overflow-hidden bg-primary-deep py-24 text-white lg:py-32">
+        <SiteImage
+          src="/stitch/stitch-11.jpg"
+          alt="Bourbon Energy Services vessel underway at sea"
+          overlay="left"
+          wrapperClassName="absolute inset-0"
+          priority
+        />
+        <div className="container-grid relative max-w-2xl">
           <Reveal>
             <h1 className="font-heading text-4xl font-extrabold leading-[1.05] lg:text-6xl">
               PROVEN CAPABILITY ACROSS ENERGY OPERATIONS

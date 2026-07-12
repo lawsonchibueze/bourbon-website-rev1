@@ -82,11 +82,11 @@ export default function ContactPage() {
 
           <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded">
             <SiteImage
-              src="/stitch/stitch-26.jpg"
+              src="/stitch/stitch-21.jpg"
               alt="Map of Bourbon Energy Services Marseille headquarters"
               wrapperClassName="h-full w-full"
             />
-            <button className="absolute bottom-3 left-3 flex items-center gap-2 bg-primary-deep px-4 py-2 label-tag text-white">
+            <button className="absolute bottom-3 left-3 flex cursor-pointer items-center gap-2 bg-primary-deep px-4 py-2 label-tag text-white">
               View on Google Maps <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -157,7 +157,7 @@ export default function ContactPage() {
       <section className="grid grid-cols-1 bg-primary lg:grid-cols-2">
         <Reveal>
           <SiteImage
-            src="/stitch/stitch-27.jpg"
+            src="/stitch/stitch-19.jpg"
             alt="Bourbon Energy Services operations control room"
             wrapperClassName="h-full min-h-[320px] w-full"
           />

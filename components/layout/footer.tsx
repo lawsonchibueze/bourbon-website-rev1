@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { Share2, Globe } from "lucide-react";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaYoutube,
+  FaInstagram,
+} from "react-icons/fa";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -12,6 +18,34 @@ const legal = [
   { href: "#", label: "Privacy Policy" },
   { href: "#", label: "Terms of Service" },
   { href: "#", label: "Compliance" },
+];
+
+const socialLinks = [
+  {
+    href: "https://linkedin.com/company/bourbon-energy",
+    icon: FaLinkedin,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://twitter.com/bourbonenergy",
+    icon: FaTwitter,
+    label: "Twitter",
+  },
+  {
+    href: "https://facebook.com/bourbonenergy",
+    icon: FaFacebook,
+    label: "Facebook",
+  },
+  {
+    href: "https://youtube.com/bourbonenergy",
+    icon: FaYoutube,
+    label: "YouTube",
+  },
+  {
+    href: "https://instagram.com/bourbonenergy",
+    icon: FaInstagram,
+    label: "Instagram",
+  },
 ];
 
 export default function Footer() {
@@ -68,9 +102,19 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Bourbon Energy Services. All
             rights reserved. Precision in offshore energy.
           </p>
-          <div className="flex items-center gap-4">
-            <Globe className="h-4 w-4" />
-            <Share2 className="h-4 w-4" />
+          <div className="flex items-center gap-3">
+            {socialLinks.map((social) => (
+              <Link
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 transition-colors hover:text-secondary"
+                aria-label={social.label}
+              >
+                <social.icon className="h-4 w-4" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary-deep py-24 text-white lg:py-32">
         <SiteImage
-          src="/stitch/stitch-15.jpg"
+          src="/stitch/stitch-11.jpg"
           alt="Bourbon Energy Services vessel underway at sea"
           overlay="left"
           wrapperClassName="absolute inset-0"
@@ -85,12 +85,12 @@ export default function ServicesPage() {
         />
         <div className="container-grid relative max-w-2xl">
           <Reveal>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-secondary" />
               <span className="label-tag text-white/70">
                 Offshore Leadership
               </span>
-            </div>
+            </div> */}
             <h1 className="font-heading mt-5 text-4xl font-bold leading-[1.1] lg:text-6xl">
               Integrated Solutions for Energy Operations
             </h1>
@@ -99,11 +99,11 @@ export default function ServicesPage() {
               specialized marine assets, and an uncompromising commitment to
               safety and operational excellence.
             </p>
-            <Link href="#framework" className="mt-9 inline-block">
+            {/* <Link href="#framework" className="mt-9 inline-block">
               <Button variant="primary" size="lg">
                 Explore Services
               </Button>
-            </Link>
+            </Link> */}
           </Reveal>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function ServicesPage() {
       <section className="container-grid grid grid-cols-1 gap-12 py-24 lg:grid-cols-2 lg:gap-16 lg:py-32">
         <Reveal>
           <SiteImage
-            src="/stitch/stitch-16.jpg"
+            src="/stitch/stitch-23.jpg"
             alt="Marine terminal used by Bourbon Energy Services"
             wrapperClassName="aspect-[4/3] w-full rounded-lg"
           />
@@ -176,7 +176,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.12}>
             <SiteImage
-              src="/stitch/stitch-17.jpg"
+              src="/stitch/stitch-16.jpg"
               alt="Industrial process piping and equipment"
               wrapperClassName="aspect-[4/3] w-full rounded-lg"
             />

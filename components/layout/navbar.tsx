@@ -31,7 +31,7 @@ export default function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full bg-surface/95 backdrop-blur transition-shadow",
-        scrolled && "shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
+        scrolled && "shadow-[0_1px_0_0_rgba(0,0,0,0.08)]",
       )}
     >
       <div className="container-grid flex h-[72px] items-center justify-between">
@@ -51,7 +51,7 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   "relative py-2 text-sm font-medium text-on-surface transition-colors hover:text-secondary",
-                  active && "text-secondary"
+                  active && "text-secondary",
                 )}
               >
                 {link.label}
@@ -63,20 +63,22 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <Link href="/contact">
             <Button variant="primary" size="sm">
               Request a Quote
             </Button>
           </Link>
-        </div>
+        </div> */}
 
         <button
           className="p-2 lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ?
+            <X className="h-6 w-6" />
+          : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
@@ -90,17 +92,17 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "py-3 text-sm font-medium",
-                  pathname === link.href ? "text-secondary" : "text-on-surface"
+                  pathname === link.href ? "text-secondary" : "text-on-surface",
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="mt-2" onClick={() => setOpen(false)}>
+            {/* <Link href="/contact" className="mt-2" onClick={() => setOpen(false)}>
               <Button variant="primary" size="sm" className="w-full">
                 Request a Quote
               </Button>
-            </Link>
+            </Link> */}
           </nav>
         </div>
       )}

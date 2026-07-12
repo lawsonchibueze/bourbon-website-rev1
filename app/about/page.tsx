@@ -39,7 +39,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary-deep py-28 text-white lg:py-36">
         <SiteImage
-          src="/stitch/stitch-11.jpg"
+          src="/stitch/stitch-13.jpg"
           alt="Offshore oil rigs at dusk representing Bourbon Energy Services operations"
           overlay="left"
           wrapperClassName="absolute inset-0"
@@ -47,7 +47,7 @@ export default function AboutPage() {
         />
         <div className="container-grid relative max-w-3xl">
           <Reveal>
-            <Badge variant="red">Established Leadership</Badge>
+            {/* <Badge variant="red">Established Leadership</Badge> */}
             <h1 className="font-heading mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight lg:text-6xl">
               BUILT ON EXPERTISE.
               <br />
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
         <Reveal delay={0.15} className="relative">
           <SiteImage
-            src="/stitch/stitch-12.jpg"
+            src="/stitch/stitch-14.jpg"
             alt="Bourbon Energy Services field crew on deck"
             wrapperClassName="aspect-[4/5] w-full rounded-lg"
           />
@@ -235,7 +235,7 @@ export default function AboutPage() {
 
           <Reveal delay={0.15} className="grid grid-cols-2 gap-4">
             <SiteImage
-              src="/stitch/stitch-13.jpg"
+              src="/stitch/stitch-25.jpg"
               alt="Mooring operations aboard a Bourbon Energy Services vessel"
               wrapperClassName="col-span-2 aspect-[16/9] rounded"
             />
@@ -244,7 +244,7 @@ export default function AboutPage() {
               <p className="label-tag mt-1 text-white/70">Safe Man-Hours</p>
             </div>
             <SiteImage
-              src="/stitch/stitch-14.jpg"
+              src="/stitch/stitch-15.jpg"
               alt="Offshore wind turbines supported by Bourbon Energy Services"
               wrapperClassName="aspect-square rounded"
             />

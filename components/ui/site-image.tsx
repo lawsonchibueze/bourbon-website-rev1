@@ -31,13 +31,13 @@ export function SiteImage({
         {...props}
       />
       {overlay === "bottom" && (
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/85 via-primary-deep/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-primary-deep/85 via-primary-deep/20 to-transparent" />
       )}
       {overlay === "full" && (
         <div className="absolute inset-0 bg-primary-deep/55" />
       )}
       {overlay === "left" && (
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-deep/90 via-primary-deep/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-primary-deep/90 via-primary-deep/40 to-transparent" />
       )}
     </div>
   );

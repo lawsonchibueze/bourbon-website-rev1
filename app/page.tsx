@@ -16,7 +16,7 @@ const solutions = [
     desc: "Advanced vessel operations for deep-water exploration and production support.",
     icon: Anchor,
     tone: "deep" as const,
-    image: null,
+    image: "/stitch/stitch-10.jpg",
   },
   {
     n: "02",
@@ -24,7 +24,7 @@ const solutions = [
     desc: "Seamless supply chain management and technical procurement for complex energy projects.",
     icon: Fuel,
     tone: "navy" as const,
-    image: "/stitch/stitch-05.jpg",
+    image: "/stitch/stitch-09.jpg",
   },
   {
     n: "03",
@@ -32,7 +32,7 @@ const solutions = [
     desc: "Integrated maintenance and technical services for onshore energy infrastructure.",
     icon: Factory,
     tone: "deep" as const,
-    image: null,
+    image: "/stitch/stitch-06.jpg",
   },
 ];
 
@@ -48,19 +48,19 @@ const insights = [
     date: "March 12, 2024",
     title: "The Future of Marine Logistics in Renewable Energy",
     desc: "Exploring how offshore support vessels are adapting to the growing offshore wind sector.",
-    image: "/stitch/stitch-08.jpg",
+    image: "/stitch/stitch-01.jpg",
   },
   {
     date: "February 28, 2024",
     title: "Optimizing Fuel Efficiency for Deep-Water Fleets",
     desc: "New AI-driven routing protocols are helping our fleet reduce emissions and operational costs.",
-    image: "/stitch/stitch-09.jpg",
+    image: "/stitch/stitch-12.jpg",
   },
   {
     date: "January 15, 2024",
     title: "Safety Benchmarks for 2024 Operations",
     desc: "Our updated safety framework targets zero-incident performance across all industrial sites.",
-    image: "/stitch/stitch-10.jpg",
+    image: "/stitch/stitch-02.jpg",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function Home() {
         </Reveal>
         <Reveal delay={0.15}>
           <SiteImage
-            src="/stitch/stitch-04.jpg"
+            src="/stitch/stitch-27.jpg"
             alt="Bourbon Energy Services technical crew reviewing field operations plans"
             wrapperClassName="aspect-[4/3] w-full rounded-lg"
           />
@@ -152,7 +152,7 @@ export default function Home() {
       <section className="grid grid-cols-1 lg:grid-cols-2">
         <Reveal>
           <SiteImage
-            src="/stitch/stitch-06.jpg"
+            src="/stitch/stitch-26.jpg"
             alt="Offshore support vessel operating in the Gulf of Mexico"
             wrapperClassName="h-full min-h-[420px] w-full"
           />
@@ -198,7 +198,7 @@ export default function Home() {
       {/* Quote band */}
       <section className="relative overflow-hidden bg-primary-deep py-24 text-center text-white lg:py-32">
         <SiteImage
-          src="/stitch/stitch-07.jpg"
+          src="/stitch/stitch-05.jpg"
           alt="Offshore platform silhouetted at dusk"
           overlay="full"
           wrapperClassName="absolute inset-0"

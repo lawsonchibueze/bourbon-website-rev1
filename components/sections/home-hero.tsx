@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -11,7 +11,7 @@ const slides = [
   {
     src: "/stitch/stitch-01.jpg",
     alt: "Bourbon Energy Services offshore support vessel underway",
-    eyebrow: "Offshore Leadership",
+    // eyebrow: "Offshore Leadership",
     title: "Powering Energy Operations With Precision.",
     copy: "Reliable offshore, marine and industrial solutions for a changing energy sector. We bridge the gap between complex engineering and operational excellence.",
     primaryCta: { label: "Explore Our Services", href: "/services" },
@@ -20,7 +20,7 @@ const slides = [
   {
     src: "/stitch/stitch-02.jpg",
     alt: "Aerial view of Bourbon Energy Services marine logistics terminal",
-    eyebrow: "Marine Logistics",
+    // eyebrow: "Marine Logistics",
     title: "Global Supply Chains, Engineered for Certainty.",
     copy: "End-to-end logistics and technical procurement keep offshore projects on schedule, from port to platform.",
     primaryCta: { label: "View Our Projects", href: "/projects" },
@@ -29,7 +29,7 @@ const slides = [
   {
     src: "/stitch/stitch-03.jpg",
     alt: "Offshore platform at dusk supported by Bourbon Energy Services",
-    eyebrow: "Industrial Excellence",
+    // eyebrow: "Industrial Excellence",
     title: "Uncompromising Standards. Zero-Harm Operations.",
     copy: "Three decades of technical integrity across the world's most demanding offshore and industrial environments.",
     primaryCta: { label: "About Bourbon", href: "/about" },
@@ -101,10 +101,10 @@ export default function HomeHero() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-2xl text-white"
           >
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-secondary" />
               <span className="label-tag text-white/75">{slide.eyebrow}</span>
-            </div>
+            </div> */}
             <h1 className="font-heading mt-5 text-4xl font-bold leading-[1.12] lg:text-[52px] lg:leading-[1.1]">
               {slide.title}
             </h1>
@@ -113,12 +113,16 @@ export default function HomeHero() {
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link href={slide.primaryCta.href}>
-                <Button variant="primary" size="lg">
+                <Button variant="primary" size="lg" className="cursor-pointer">
                   {slide.primaryCta.label}
                 </Button>
               </Link>
               <Link href={slide.secondaryCta.href}>
-                <Button variant="outlineLight" size="lg">
+                <Button
+                  variant="outlineLight"
+                  size="lg"
+                  className="cursor-pointer"
+                >
                   {slide.secondaryCta.label}
                 </Button>
               </Link>
@@ -128,7 +132,7 @@ export default function HomeHero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute inset-x-0 bottom-9 flex flex-col items-center gap-3">
+      {/* <div className="absolute inset-x-0 bottom-9 flex flex-col items-center gap-3">
         <p className="label-tag text-white/70">Scroll to Explore</p>
         <span className="relative block h-8 w-px overflow-hidden bg-white/20">
           <motion.span
@@ -139,29 +143,14 @@ export default function HomeHero() {
             className="absolute inset-0 bg-secondary"
           />
         </span>
-      </div>
+      </div> */}
 
       {/* Slide indicators */}
-      <div className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 items-center gap-2 sm:flex lg:left-20 lg:translate-x-0">
-        {slides.map((s, i) => (
-          <button
-            key={s.title}
-            aria-label={`Go to slide ${i + 1}`}
-            aria-current={i === index}
-            onClick={() => {
-              setIndex(i);
-              setProgressKey((k) => k + 1);
-            }}
-            className={`h-1.5 rounded-full transition-all ${
-              i === index ? "w-8 bg-secondary" : "w-1.5 bg-white/40 hover:bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
+      {/* <div className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 items-center gap-2 sm:flex lg:left-20 lg:translate-x-0"></div> */}
 
       {/* Prev / Next controls */}
       <div className="absolute bottom-8 right-6 flex items-center gap-3 lg:right-20">
-        <button
+        {/* <button
           aria-label="Previous slide"
           onClick={prev}
           className="flex h-10 w-10 items-center justify-center rounded border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-colors hover:bg-white/15"
@@ -174,7 +163,23 @@ export default function HomeHero() {
           className="flex h-10 w-10 items-center justify-center rounded border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-colors hover:bg-white/15"
         >
           <ChevronRight className="h-4 w-4" />
-        </button>
+        </button> */}
+        {slides.map((s, i) => (
+          <button
+            key={s.title}
+            aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === index}
+            onClick={() => {
+              setIndex(i);
+              setProgressKey((k) => k + 1);
+            }}
+            className={`h-1.5 rounded-full transition-all ${
+              i === index ? "w-8 bg-secondary" : (
+                "w-1.5 bg-white/40 hover:bg-white/60"
+              )
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
