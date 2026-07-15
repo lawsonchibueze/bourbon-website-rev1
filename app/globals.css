@@ -57,8 +57,8 @@
   --color-error: var(--error);
   --color-background: var(--background);
   --color-on-background: var(--on-background);
-  --font-heading: "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui,
-    sans-serif;
+  --font-heading:
+    "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: 0.125rem;
   --radius-DEFAULT: 0.25rem;

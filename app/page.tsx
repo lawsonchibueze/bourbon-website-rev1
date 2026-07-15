@@ -230,7 +230,9 @@ export default function Home() {
                 <h3 className="mt-10 font-heading text-lg font-bold">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-white/58">{step.copy}</p>
+                <p className="mt-3 text-sm leading-6 text-white/58">
+                  {step.copy}
+                </p>
               </StaggerItem>
             ))}
           </RevealStagger>

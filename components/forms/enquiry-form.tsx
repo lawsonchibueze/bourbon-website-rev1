@@ -78,7 +78,7 @@ export function EnquiryForm() {
       onSubmit={handleSubmit}
       className="bg-white p-7 shadow-[0_18px_60px_rgba(4,19,33,0.08)] sm:p-10"
     >
-      <p className="eyebrow text-secondary">Project brief builder</p>
+      {/* <p className="eyebrow text-secondary">Project brief builder</p> */}
       <h2 className="mt-3 font-heading text-2xl font-bold text-primary">
         Structure your requirement
       </h2>
@@ -89,7 +89,12 @@ export function EnquiryForm() {
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <Field label="Full name" required>
-          <Input name="name" autoComplete="name" placeholder="Your name" required />
+          <Input
+            name="name"
+            autoComplete="name"
+            placeholder="Your name"
+            required
+          />
         </Field>
         <Field label="Company" required>
           <Input
@@ -129,7 +134,11 @@ export function EnquiryForm() {
           </Select>
         </Field>
         <Field label="Operating region" required>
-          <Input name="region" placeholder="Country, port, or field area" required />
+          <Input
+            name="region"
+            placeholder="Country, port, or field area"
+            required
+          />
         </Field>
         <Field label="Expected start">
           <Input name="start" type="date" />
@@ -144,12 +153,17 @@ export function EnquiryForm() {
         />
       </Field>
 
-      <div className="mt-6 border-l-2 border-secondary bg-surface-container-low p-4 text-xs leading-5 text-on-surface-variant">
+      {/* <div className="mt-6 border-l-2 border-secondary bg-surface-container-low p-4 text-xs leading-5 text-on-surface-variant">
         Do not include confidential, export-controlled, personal, or
         security-sensitive information in this initial brief.
-      </div>
+      </div> */}
 
-      <Button type="submit" variant="dark" size="lg" className="mt-7 w-full sm:w-auto">
+      <Button
+        type="submit"
+        variant="dark"
+        size="lg"
+        className="mt-7 w-full sm:w-auto"
+      >
         Prepare project brief
       </Button>
     </form>

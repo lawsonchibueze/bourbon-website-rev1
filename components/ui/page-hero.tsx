@@ -31,10 +31,10 @@ export function PageHero({
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-primary-deep/75 to-transparent" />
       <div className="container-grid flex min-h-[520px] items-center pb-16 pt-28 lg:min-h-[610px] lg:pt-32">
         <Reveal className="max-w-3xl">
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <span className="h-px w-9 bg-secondary" />
             <span className="eyebrow text-white/65">{eyebrow}</span>
-          </div>
+          </div> */}
           <h1 className="mt-6 max-w-3xl font-heading text-4xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[68px]">
             {title}
           </h1>
@@ -43,12 +43,12 @@ export function PageHero({
           </p>
         </Reveal>
       </div>
-      <Link
+      {/* <Link
         href="#page-content"
         className="absolute bottom-7 right-6 hidden items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white sm:flex lg:right-12"
       >
         Explore <ArrowDownRight className="h-4 w-4 text-secondary" />
-      </Link>
+      </Link> */}
     </section>
   );
 }

@@ -29,12 +29,12 @@ export default function HomeHero() {
 
       <div className="container-grid flex min-h-[620px] items-center pb-16 pt-20 lg:min-h-[670px] lg:pt-24">
         <Reveal className="max-w-3xl">
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-secondary" />
             <span className="eyebrow text-white/65">
               Marine &amp; Offshore Support
             </span>
-          </div>
+          </div> */}
           <h1 className="mt-7 max-w-3xl font-heading text-[44px] font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-[78px]">
             Keeping offshore operations moving.
           </h1>

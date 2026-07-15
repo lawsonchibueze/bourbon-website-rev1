@@ -161,17 +161,22 @@ export default function ServicesPage() {
 
           <RevealStagger className="mt-14 grid gap-px overflow-hidden border border-white/12 bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
             {framework.map((step) => (
-              <StaggerItem key={step.n} className="bg-primary-deep p-7 lg:min-h-[290px]">
+              <StaggerItem
+                key={step.n}
+                className="bg-primary-deep p-7 lg:min-h-72.5"
+              >
                 <div className="flex items-center justify-between">
                   <span className="grid h-10 w-10 place-items-center border border-white/18 font-heading text-xs font-bold text-tertiary">
                     {step.n}
                   </span>
-                  <Check className="h-4 w-4 text-secondary" />
+                  {/* <Check className="h-4 w-4 text-secondary" /> */}
                 </div>
                 <h3 className="mt-12 font-heading text-xl font-bold">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-white/58">{step.desc}</p>
+                <p className="mt-4 text-sm leading-7 text-white/58">
+                  {step.desc}
+                </p>
               </StaggerItem>
             ))}
           </RevealStagger>
@@ -182,7 +187,7 @@ export default function ServicesPage() {
         <Reveal className="relative overflow-hidden bg-white px-6 py-12 shadow-[0_20px_60px_rgba(4,19,33,0.07)] sm:px-10 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-14 lg:py-14">
           <div className="absolute inset-y-0 left-0 w-1 bg-secondary" />
           <div>
-            <p className="eyebrow text-secondary">Commercial enquiry</p>
+            {/* <p className="eyebrow text-secondary">Commercial enquiry</p> */}
             <h2 className="mt-3 max-w-2xl font-heading text-2xl font-bold tracking-[-0.03em] text-primary sm:text-3xl">
               Need support around a specific operating requirement?
             </h2>
@@ -191,7 +196,12 @@ export default function ServicesPage() {
               logistics constraints. We will help structure the next step.
             </p>
           </div>
-          <Button asChild variant="dark" size="lg" className="mt-8 shrink-0 lg:mt-0">
+          <Button
+            asChild
+            variant="dark"
+            size="lg"
+            className="mt-8 shrink-0 lg:mt-0"
+          >
             <Link href="/contact">
               Discuss your scope <ArrowRight className="h-4 w-4" />
             </Link>

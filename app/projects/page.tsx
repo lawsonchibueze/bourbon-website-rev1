@@ -141,7 +141,7 @@ export default function ProjectsPage() {
                     {model.number}
                   </span>
                 </div>
-                <p className="eyebrow mt-9 text-secondary">{model.eyebrow}</p>
+                {/* <p className="eyebrow mt-9 text-secondary">{model.eyebrow}</p> */}
                 <h2 className="mt-3 font-heading text-2xl font-bold tracking-[-0.03em] text-primary sm:text-3xl">
                   {model.title}
                 </h2>
@@ -179,12 +179,17 @@ export default function ProjectsPage() {
           </Reveal>
           <RevealStagger className="mt-14 grid gap-px overflow-hidden border border-white/12 bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
             {evidence.map((item) => (
-              <StaggerItem key={item.title} className="bg-primary-deep p-7 lg:min-h-[250px]">
+              <StaggerItem
+                key={item.title}
+                className="bg-primary-deep p-7 lg:min-h-[250px]"
+              >
                 <item.icon className="h-5 w-5 text-tertiary" />
                 <h3 className="mt-10 font-heading text-lg font-bold">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-white/58">{item.copy}</p>
+                <p className="mt-3 text-sm leading-6 text-white/58">
+                  {item.copy}
+                </p>
               </StaggerItem>
             ))}
           </RevealStagger>
@@ -204,7 +209,7 @@ export default function ProjectsPage() {
           <Reveal delay={0.12}>
             <SectionHeading
               eyebrow="Asset access & deployment support"
-              title="The asset is matched to the scope—not the other way around."
+              title="The asset is matched to the scope not the other way around."
               description="We help identify and coordinate suitable marine assets against the operating location, schedule, technical requirements, contracting model, and project interfaces."
             />
             <div className="mt-8 border-l-2 border-secondary bg-surface-container-low p-6">

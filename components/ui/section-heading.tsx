@@ -8,7 +8,7 @@ export function SectionHeading({
   inverse = false,
   className,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -16,27 +16,22 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        align === "center" && "mx-auto text-center",
-        className,
-      )}
-    >
+    <div className={cn(align === "center" && "mx-auto text-center", className)}>
       <div
         className={cn(
           "flex items-center gap-3",
           align === "center" && "justify-center",
         )}
       >
-        <span className="h-px w-8 bg-secondary" />
-        <span
+        {/* <span className="h-px w-8 bg-secondary" /> */}
+        {/* <span
           className={cn(
             "eyebrow",
             inverse ? "text-white/65" : "text-secondary",
           )}
         >
           {eyebrow}
-        </span>
+        </span> */}
       </div>
       <h2
         className={cn(
