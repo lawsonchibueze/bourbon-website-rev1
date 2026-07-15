@@ -1,76 +1,48 @@
 import Link from "next/link";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaYoutube,
-  FaInstagram,
-} from "react-icons/fa";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { BrandMark } from "@/components/ui/brand-mark";
 
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About Us" },
-  { href: "/projects", label: "Projects" },
+  { href: "/services", label: "Capabilities" },
+  { href: "/projects", label: "Experience" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
-const legal = [
-  { href: "#", label: "Privacy Policy" },
-  { href: "#", label: "Terms of Service" },
-  { href: "#", label: "Compliance" },
-];
-
-const socialLinks = [
-  {
-    href: "https://linkedin.com/company/bourbon-energy",
-    icon: FaLinkedin,
-    label: "LinkedIn",
-  },
-  {
-    href: "https://twitter.com/bourbonenergy",
-    icon: FaTwitter,
-    label: "Twitter",
-  },
-  {
-    href: "https://facebook.com/bourbonenergy",
-    icon: FaFacebook,
-    label: "Facebook",
-  },
-  {
-    href: "https://youtube.com/bourbonenergy",
-    icon: FaYoutube,
-    label: "YouTube",
-  },
-  {
-    href: "https://instagram.com/bourbonenergy",
-    icon: FaInstagram,
-    label: "Instagram",
-  },
+const capabilityLinks = [
+  "Marine operations support",
+  "Project logistics",
+  "Technical & industrial support",
+  "Mobilisation coordination",
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      <div className="container-grid grid grid-cols-1 gap-10 py-16 lg:grid-cols-3">
+    <footer className="relative overflow-hidden bg-primary-deep text-white">
+      <div className="technical-grid absolute inset-0 opacity-40" />
+      <div className="container-grid relative grid gap-12 py-16 lg:grid-cols-[1.25fr_0.65fr_0.9fr] lg:gap-16 lg:py-20">
         <div>
-          <p className="font-heading text-lg font-bold tracking-tight">
-            BOURBON ENERGY SERVICES
+          <BrandMark inverse />
+          <p className="mt-6 max-w-md text-sm leading-7 text-white/58">
+            Marine, logistics, and technical support for offshore and industrial
+            operations—from early planning through mobilisation and close-out.
           </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-            Global leaders in offshore marine services, technical engineering,
-            and energy logistics. Committed to safety, precision, and
-            sustainability.
-          </p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center gap-3 border-b border-secondary pb-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition-colors hover:text-tertiary"
+          >
+            Start a conversation <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
 
         <div>
-          <p className="label-tag text-white/50">Navigation</p>
-          <ul className="mt-4 space-y-3">
+          <p className="eyebrow text-white/40">Navigate</p>
+          <ul className="mt-6 space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-white/80 transition-colors hover:text-secondary"
+                  className="text-sm text-white/72 transition-colors hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -80,42 +52,27 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="label-tag text-white/50">Legal</p>
-          <ul className="mt-4 space-y-3">
-            {legal.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="text-sm text-white/80 transition-colors hover:text-secondary"
-                >
-                  {item.label}
-                </Link>
-              </li>
+          <p className="eyebrow text-white/40">Capability areas</p>
+          <ul className="mt-6 space-y-3 text-sm leading-6 text-white/58">
+            {capabilityLinks.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
+          <div className="mt-7 flex items-center gap-3 border-t border-white/10 pt-6 text-sm text-white/65">
+            <Mail className="h-4 w-4 text-secondary" />
+            Commercial contact details pending verification
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="container-grid flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row">
-          <p>
-            &copy; {new Date().getFullYear()} Bourbon Energy Services. All
-            rights reserved. Precision in offshore energy.
+      <div className="relative border-t border-white/10">
+        <div className="container-grid flex flex-col gap-3 py-6 text-[11px] leading-5 text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Bourbon Energy Services.</p>
+          <p className="max-w-2xl sm:text-right">
+            Service availability, asset specifications, schedules, and
+            performance requirements are confirmed for each engagement and
+            remain subject to contract.
           </p>
-          <div className="flex items-center gap-3">
-            {socialLinks.map((social) => (
-              <Link
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/50 transition-colors hover:text-secondary"
-                aria-label={social.label}
-              >
-                <social.icon className="h-4 w-4" />
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
