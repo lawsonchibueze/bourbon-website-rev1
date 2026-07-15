@@ -1,259 +1,243 @@
-"use client";
-
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Boxes,
+  Check,
+  ClipboardCheck,
+  FileText,
+  Gauge,
+  Network,
+  Ship,
+  Wrench,
+} from "lucide-react";
+import { PageHero } from "@/components/ui/page-hero";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { SiteImage } from "@/components/ui/site-image";
-import { Reveal, RevealStagger, revealItem } from "@/components/motion/reveal";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Reveal, RevealStagger, StaggerItem } from "@/components/motion/reveal";
 
-type Category =
-  | "All"
-  | "Offshore"
-  | "Marine Logistics"
-  | "Industrial"
-  | "Energy Support";
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Representative marine, logistics, and technical support models structured around offshore operating requirements.",
+};
 
-const filters: Category[] = [
-  "All",
-  "Offshore",
-  "Marine Logistics",
-  "Industrial",
-  "Energy Support",
-];
-
-const projects: {
-  category: Exclude<Category, "All">;
-  title: string;
-  location: string;
-  image: string;
-}[] = [
+const engagementModels = [
   {
-    category: "Offshore",
-    title: "Deepwater Platform Support",
-    location: "Gulf of Guinea, Nigeria",
-    image: "/stitch/stitch-03.jpg",
+    number: "01",
+    eyebrow: "Marine operations",
+    title: "Offshore supply coordination",
+    summary:
+      "A structured support model for moving cargo, equipment, and operational information between vendor, shorebase, vessel, and offshore location.",
+    image: "/images/shorebase-logistics-v2.png",
+    alt: "Offshore supply vessel receiving organised cargo at a shorebase",
+    icon: Ship,
+    scope: [
+      "Requirement and interface mapping",
+      "Cargo readiness and delivery sequencing",
+      "Shorebase and vessel coordination",
+      "Movement status and close-out records",
+    ],
   },
   {
-    category: "Industrial",
-    title: "Refinery Infrastructure Upgrade",
-    location: "Port Harcourt Complex",
-    image: "/stitch/stitch-22.jpg",
-  },
-  {
-    category: "Marine Logistics",
-    title: "Coastal Supply Chain Operations",
-    location: "Onne Logistics Base",
+    number: "02",
+    eyebrow: "Mobilisation",
+    title: "Project logistics support",
+    summary:
+      "Coordinated procurement, expediting, equipment preparation, and mobilisation support aligned with the project work programme.",
     image: "/stitch/stitch-20.jpg",
-  },
-  {
-    category: "Energy Support",
-    title: "Subsea Asset Inspection",
-    location: "Bonga Field Operations",
-    image: "/stitch/stitch-18.jpg",
-  },
-  {
-    category: "Offshore",
-    title: "Renewables Installation Phase I",
-    location: "North Sea Project Area",
-    image: "/stitch/stitch-22.jpg",
-  },
-  {
-    category: "Industrial",
-    title: "Integrated Maintenance Contract",
-    location: "Warri Industrial Zone",
-    image: "/stitch/stitch-23.jpg",
-  },
-];
-
-const vessels = [
-  {
-    name: "Bourbon Liberty 200",
-    type: "PSV (Platform Supply)",
-    image: "/stitch/stitch-24.jpg",
-    specs: [
-      { label: "DWT", value: "1,500 MT" },
-      { label: "Clear Deck", value: "415 m²" },
-      { label: "Max Speed", value: "14.5 Knots" },
+    alt: "Project cargo staged for mobilisation at an industrial port",
+    icon: Boxes,
+    scope: [
+      "Supplier and delivery coordination",
+      "Documentation and readiness tracking",
+      "Port, transport, and cargo interfaces",
+      "Exception reporting and handover support",
     ],
   },
   {
-    name: "Bourbon Orca",
-    type: "AHTS (Handling / Towing)",
-    image: "/stitch/stitch-25.jpg",
-    specs: [
-      { label: "Bollard Pull", value: "180 MT" },
-      { label: "BHP", value: "12,240" },
-      { label: "Dynamic Pos", value: "DP2 System" },
+    number: "03",
+    eyebrow: "Technical support",
+    title: "Field resource coordination",
+    summary:
+      "A delivery model for aligning technical personnel, equipment, maintenance needs, and supporting documentation around field work.",
+    image: "/images/marine-operations-team-v2.png",
+    alt: "Marine technical team reviewing field work plans",
+    icon: Wrench,
+    scope: [
+      "Technical resource planning",
+      "Equipment sourcing and readiness",
+      "Field communication and reporting",
+      "Handover and agreed close-out support",
     ],
   },
 ];
 
-const stats = [
-  { value: "98%", label: "Vessel Uptime" },
-  { value: "15+", label: "Active Fields" },
-  { value: "Zero", label: "LTI Target" },
-  { value: "24/7", label: "Fleet Support" },
+const evidence = [
+  {
+    icon: ClipboardCheck,
+    title: "Defined need",
+    copy: "The operational challenge, location, interfaces, and required outcome are made clear.",
+  },
+  {
+    icon: Network,
+    title: "Visible delivery model",
+    copy: "Responsibilities, assets, suppliers, controls, and communication routes are documented.",
+  },
+  {
+    icon: Gauge,
+    title: "Measured outcome",
+    copy: "Results are reported against an agreed baseline and only published with approval.",
+  },
+  {
+    icon: FileText,
+    title: "Traceable close-out",
+    copy: "Records support handover, lessons learned, and the next operating decision.",
+  },
 ];
 
 export default function ProjectsPage() {
-  const [active, setActive] = useState<Category>("All");
-  const visible =
-    active === "All" ? projects : projects.filter((p) => p.category === active);
-
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-primary-deep py-24 text-white lg:py-32">
-        <SiteImage
-          src="/stitch/stitch-11.jpg"
-          alt="Bourbon Energy Services vessel underway at sea"
-          overlay="left"
-          wrapperClassName="absolute inset-0"
-          priority
-        />
-        <div className="container-grid relative max-w-2xl">
-          <Reveal>
-            <h1 className="font-heading text-4xl font-extrabold leading-[1.05] lg:text-6xl">
-              PROVEN CAPABILITY ACROSS ENERGY OPERATIONS
-            </h1>
-            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70">
-              Delivering precision-engineered solutions for the world&apos;s
-              most demanding offshore and industrial energy environments. Our
-              track record is built on safety, reliability, and technical
-              excellence.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Experience"
+        title="Support models shaped around the operating requirement."
+        description="Every assignment has different assets, interfaces, schedules, and controls. We structure the work around those realities rather than force the requirement into a generic package."
+        image="/images/offshore-vessel-dusk-hero.png"
+        imageAlt="Offshore support vessel operating at dusk"
+      />
 
-      {/* Filters */}
-      <div className="border-b border-outline-variant/40 bg-surface-container-low">
-        <div className="container-grid flex gap-8 overflow-x-auto py-5 text-sm">
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={cn(
-                "relative whitespace-nowrap pb-1 font-medium transition-colors",
-                active === f ? "text-secondary" : (
-                  "text-on-surface-variant hover:text-primary"
-                ),
-              )}
+      <section id="page-content" className="container-grid py-24 lg:py-32">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Representative engagement models"
+            title="From shorebase preparation to offshore execution."
+            description="The examples below describe how support can be structured. Final capability, asset availability, scope, location, and performance requirements are confirmed for each engagement."
+            className="max-w-4xl"
+          />
+        </Reveal>
+
+        <RevealStagger className="mt-14 space-y-8">
+          {engagementModels.map((model, index) => (
+            <StaggerItem
+              key={model.number}
+              className="grid overflow-hidden bg-white shadow-[0_18px_60px_rgba(4,19,33,0.07)] lg:grid-cols-[0.92fr_1.08fr]"
             >
-              {f}
-              {active === f && (
-                <span className="absolute -bottom-[21px] left-0 h-[2px] w-full bg-secondary" />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Grid */}
-      <section className="container-grid py-20">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {visible.map((p) => (
-              <div key={p.title}>
+              <div className={index % 2 === 1 ? "lg:order-2" : undefined}>
                 <SiteImage
-                  src={p.image}
-                  alt={p.title}
-                  wrapperClassName="aspect-[4/3] w-full rounded"
+                  src={model.image}
+                  alt={model.alt}
+                  wrapperClassName="h-full min-h-[380px]"
+                  sizes="(min-width: 1024px) 44vw, 100vw"
                 />
-                <p className="label-tag mt-4 text-secondary">{p.category}</p>
-                <h3 className="font-heading mt-2 text-lg font-bold text-primary">
-                  {p.title}
-                </h3>
-                <p className="mt-2 flex items-center gap-1.5 text-sm text-on-surface-variant">
-                  <MapPin className="h-3.5 w-3.5" /> {p.location}
-                </p>
               </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+              <div className="p-7 sm:p-10 lg:p-12">
+                <div className="flex items-center justify-between">
+                  <div className="grid h-11 w-11 place-items-center bg-primary text-white">
+                    <model.icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-heading text-5xl font-bold text-primary/8">
+                    {model.number}
+                  </span>
+                </div>
+                <p className="eyebrow mt-9 text-secondary">{model.eyebrow}</p>
+                <h2 className="mt-3 font-heading text-2xl font-bold tracking-[-0.03em] text-primary sm:text-3xl">
+                  {model.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-on-surface-variant">
+                  {model.summary}
+                </p>
+                <ul className="mt-7 grid gap-x-6 sm:grid-cols-2">
+                  {model.scope.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 border-t border-outline-variant/65 py-3 text-sm leading-6 text-on-surface"
+                    >
+                      <Check className="mt-1 h-3.5 w-3.5 shrink-0 text-secondary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </StaggerItem>
+          ))}
+        </RevealStagger>
       </section>
 
-      {/* Asset Excellence */}
-      <section className="bg-primary py-24 text-white lg:py-28">
-        <div className="container-grid">
-          <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="font-heading text-3xl font-bold lg:text-4xl">
-                Asset Excellence
-              </h2>
-              <p className="mt-3 max-w-md text-[15px] text-white/60">
-                Explore our state-of-the-art fleet and technical inventory
-                available for global deployment. Precision-maintained and
-                safety-certified.
-              </p>
-            </div>
-            <div className="flex gap-2 text-xs">
-              <span className="rounded-sm bg-secondary px-4 py-2 label-tag">
-                Marine Vessels
-              </span>
-              <span className="rounded-sm border border-white/25 px-4 py-2 label-tag text-white/60">
-                Support Equipment
-              </span>
-              <span className="rounded-sm border border-white/25 px-4 py-2 label-tag text-white/60">
-                Industrial Equipment
-              </span>
-            </div>
+      <section className="relative overflow-hidden bg-primary-deep py-24 text-white lg:py-32">
+        <div className="technical-grid absolute inset-0 opacity-55" />
+        <div className="container-grid relative">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Evidence-led delivery"
+              title="Professional experience is documented, not decorated."
+              description="A credible case study connects the operating need to the delivery model and the measured outcome. We only present project details where the underlying records and publication permissions are available."
+              inverse
+              className="max-w-4xl"
+            />
           </Reveal>
-
-          <RevealStagger className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {vessels.map((v) => (
-              <motion.div
-                key={v.name}
-                variants={revealItem}
-                className="grid grid-cols-1 gap-5 bg-primary-deep p-5 sm:grid-cols-[180px_1fr]"
-              >
-                <SiteImage
-                  src={v.image}
-                  alt={v.name}
-                  wrapperClassName="aspect-[4/3] w-full rounded"
-                />
-                <div className="flex flex-col">
-                  <p className="font-heading text-lg font-bold">{v.name}</p>
-                  <p className="label-tag mt-1 text-white/50">{v.type}</p>
-                  <div className="mt-4 grid grid-cols-3 gap-2">
-                    {v.specs.map((s) => (
-                      <div key={s.label}>
-                        <p className="label-tag text-white/40">{s.label}</p>
-                        <p className="mt-1 text-sm font-semibold">{s.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="primary" size="sm" className="mt-5 w-fit">
-                    Availability Enquiry
-                  </Button>
-                </div>
-              </motion.div>
+          <RevealStagger className="mt-14 grid gap-px overflow-hidden border border-white/12 bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
+            {evidence.map((item) => (
+              <StaggerItem key={item.title} className="bg-primary-deep p-7 lg:min-h-[250px]">
+                <item.icon className="h-5 w-5 text-tertiary" />
+                <h3 className="mt-10 font-heading text-lg font-bold">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-white/58">{item.copy}</p>
+              </StaggerItem>
             ))}
           </RevealStagger>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-outline-variant/40 bg-surface-container-low py-16">
-        <RevealStagger className="container-grid grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
-          {stats.map((s) => (
-            <motion.div key={s.label} variants={revealItem}>
-              <p className="font-heading text-3xl font-extrabold text-primary lg:text-4xl">
-                {s.value}
+      <section className="container-grid py-24 lg:py-32">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          <Reveal>
+            <SiteImage
+              src="/images/marine-hero-v2.png"
+              alt="Modern offshore support vessel underway"
+              wrapperClassName="aspect-[5/4] rounded-sm"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+          </Reveal>
+          <Reveal delay={0.12}>
+            <SectionHeading
+              eyebrow="Asset access & deployment support"
+              title="The asset is matched to the scope—not the other way around."
+              description="We help identify and coordinate suitable marine assets against the operating location, schedule, technical requirements, contracting model, and project interfaces."
+            />
+            <div className="mt-8 border-l-2 border-secondary bg-surface-container-low p-6">
+              <p className="text-sm leading-7 text-on-surface-variant">
+                Asset ownership, operating responsibility, availability,
+                specifications, certification, and commercial terms are
+                confirmed for each enquiry before commitment.
               </p>
-              <p className="label-tag mt-2 text-secondary">{s.label}</p>
-            </motion.div>
-          ))}
-        </RevealStagger>
+            </div>
+            <Button asChild variant="dark" className="mt-8">
+              <Link href="/contact">
+                Discuss an asset requirement <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-secondary py-16 text-white lg:py-20">
+        <Reveal className="container-grid flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="eyebrow text-white/65">Build the right scope</p>
+            <h2 className="mt-3 max-w-3xl font-heading text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
+              Tell us what must move, where it must go, and when it must be
+              ready.
+            </h2>
+          </div>
+          <Button asChild variant="outlineLight" size="lg" className="shrink-0">
+            <Link href="/contact">
+              Start an enquiry <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </Reveal>
       </section>
     </>
   );

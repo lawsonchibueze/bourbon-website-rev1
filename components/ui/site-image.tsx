@@ -18,7 +18,7 @@ export function SiteImage({
   className,
   wrapperClassName,
   fill = true,
-  sizes = "100vw",
+  sizes = "(min-width: 1024px) 50vw, 100vw",
   ...props
 }: SiteImageProps) {
   return (
@@ -27,7 +27,10 @@ export function SiteImage({
         alt={alt}
         fill={fill}
         sizes={sizes}
-        className={cn("object-cover", className)}
+        className={cn(
+          "object-cover transition-transform duration-700 ease-out",
+          className,
+        )}
         {...props}
       />
       {overlay === "bottom" && (
