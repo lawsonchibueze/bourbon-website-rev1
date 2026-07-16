@@ -106,7 +106,7 @@ export default function Home() {
               wrapperClassName="aspect-[4/5] min-h-[520px] rounded-sm"
               sizes="(min-width: 1024px) 43vw, 100vw"
             />
-            <div className="absolute -bottom-7 right-0 hidden w-[78%] bg-primary p-7 text-white shadow-2xl sm:block lg:-right-10">
+            <div className="absolute -bottom-7 right-0 hidden w-[78%] bg-primary-container p-7 text-white shadow-2xl sm:block lg:-right-10">
               <p className="eyebrow text-tertiary">Operational discipline</p>
               <p className="mt-3 font-heading text-lg font-semibold leading-7">
                 Clear planning. Coordinated execution. Dependable support from
@@ -167,7 +167,7 @@ export default function Home() {
             {capabilities.map((capability) => (
               <StaggerItem
                 key={capability.number}
-                className="group overflow-hidden bg-white shadow-[0_16px_45px_rgba(4,19,33,0.06)]"
+                className="group overflow-hidden bg-surface-bright shadow-[0_16px_45px_rgba(4,19,33,0.06)]"
               >
                 <div className="relative overflow-hidden">
                   <SiteImage
@@ -177,7 +177,7 @@ export default function Home() {
                     sizes="(min-width: 1024px) 29vw, 100vw"
                     className="group-hover:scale-[1.035]"
                   />
-                  <div className="absolute left-5 top-5 grid h-11 w-11 place-items-center bg-primary text-white shadow-lg">
+                  <div className="absolute left-5 top-5 grid h-11 w-11 place-items-center bg-primary-container text-white shadow-lg">
                     <capability.icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function Home() {
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </Reveal>
-        <div className="flex items-center bg-white px-6 py-20 sm:px-10 lg:px-16 lg:py-24 xl:px-24">
+        <div className="flex items-center bg-surface-bright px-6 py-20 sm:px-10 lg:px-16 lg:py-24 xl:px-24">
           <Reveal>
             <SectionHeading
               eyebrow="Operational focus"

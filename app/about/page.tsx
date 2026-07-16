@@ -113,7 +113,7 @@ export default function AboutPage() {
             />
           </Reveal>
           <RevealStagger className="mt-14 grid gap-6 lg:grid-cols-3">
-            <StaggerItem className="bg-primary p-8 text-white lg:p-10">
+            <StaggerItem className="bg-primary-container p-8 text-white lg:p-10">
               <Target className="h-6 w-6 text-tertiary" />
               <p className="eyebrow mt-10 text-white/45">Mission</p>
               <h3 className="mt-3 font-heading text-xl font-bold leading-8">
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 planning, responsive coordination, and responsible execution.
               </h3>
             </StaggerItem>
-            <StaggerItem className="bg-white p-8 lg:p-10">
+            <StaggerItem className="bg-surface-bright p-8 lg:p-10">
               <Eye className="h-6 w-6 text-secondary" />
               <p className="eyebrow mt-10 text-outline">Vision</p>
               <h3 className="mt-3 font-heading text-xl font-bold leading-8 text-primary">
@@ -151,7 +151,7 @@ export default function AboutPage() {
         </Reveal>
         <RevealStagger className="mt-14 grid gap-px overflow-hidden border border-outline-variant/65 bg-outline-variant/65 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((principle) => (
-            <StaggerItem key={principle.title} className="bg-white p-7 lg:min-h-[280px]">
+            <StaggerItem key={principle.title} className="bg-surface-bright p-7 lg:min-h-[280px]">
               <principle.icon className="h-5 w-5 text-secondary" />
               <h3 className="mt-10 font-heading text-lg font-bold text-primary">
                 {principle.title}

@@ -18,7 +18,7 @@ export function BrandMark({
       <span
         className={cn(
           "relative block h-14 w-[92px] shrink-0 overflow-hidden",
-          inverse ? "bg-primary-deep" : "bg-white",
+          inverse ? "bg-primary-deep" : "bg-surface-bright",
         )}
       >
         <Image

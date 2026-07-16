@@ -4,6 +4,20 @@ import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
+const themeScript = `
+  (function () {
+    try {
+      var stored = localStorage.getItem("bourbon-theme");
+      var dark = stored === "dark" ||
+        (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      var root = document.documentElement;
+      root.classList.toggle("dark", dark);
+      root.dataset.theme = dark ? "dark" : "light";
+      root.style.colorScheme = dark ? "dark" : "light";
+    } catch (_) {}
+  })();
+`;
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
@@ -43,8 +57,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${montserrat.variable} ${inter.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className="bg-surface font-body text-on-surface antialiased"
       >
