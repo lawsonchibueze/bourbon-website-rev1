@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function BrandMark({
@@ -12,29 +13,24 @@ export function BrandMark({
     <Link
       href="/"
       aria-label="Bourbon Energy Services home"
-      className={cn("group inline-flex items-center gap-3", className)}
+      className={cn("group inline-flex items-center", className)}
     >
-      <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-sm bg-secondary text-white shadow-[0_8px_24px_rgba(211,33,45,0.22)]">
-        <span className="absolute -left-2 top-1/2 h-px w-14 -rotate-45 bg-white/35" />
-        <span className="font-heading text-base font-extrabold tracking-tight">BE</span>
-      </span>
-      <span className="leading-none">
-        <span
-          className={cn(
-            "block font-heading text-[13px] font-extrabold tracking-[0.08em]",
-            inverse ? "text-white" : "text-primary",
-          )}
-        >
-          BOURBON ENERGY
-        </span>
-        <span
-          className={cn(
-            "mt-1 block text-[9px] font-semibold uppercase tracking-[0.26em]",
-            inverse ? "text-white/55" : "text-on-surface-variant/70",
-          )}
-        >
-          Marine &amp; Offshore Support
-        </span>
+      <span
+        className={cn(
+          "relative block h-14 w-[92px] shrink-0 overflow-hidden",
+          inverse ? "bg-primary-deep" : "bg-white",
+        )}
+      >
+        <Image
+          src="/brand/alpha-logo-on-green.jpeg"
+          alt=""
+          width={1024}
+          height={1024}
+          sizes="116px"
+          loading={inverse ? "lazy" : "eager"}
+          fetchPriority={inverse ? "auto" : "high"}
+          className="absolute left-1/2 top-1/2 h-[116px] w-[116px] max-w-none -translate-x-1/2 -translate-y-[48%] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        />
       </span>
     </Link>
   );
