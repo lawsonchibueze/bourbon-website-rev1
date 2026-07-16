@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function BrandMark({
@@ -9,29 +8,51 @@ export function BrandMark({
   inverse?: boolean;
   className?: string;
 }) {
+  const maskId = inverse
+    ? "alpha-wordmark-mask-inverse"
+    : "alpha-wordmark-mask-default";
+
   return (
     <Link
       href="/"
       aria-label="Bourbon Energy Services home"
-      className={cn("group inline-flex items-center", className)}
+      className={cn(
+        "group inline-flex shrink-0 items-center transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-surface-bright",
+        inverse ? "text-white" : "text-primary",
+        className,
+      )}
     >
-      <span
-        className={cn(
-          "relative block h-14 w-[92px] shrink-0 overflow-hidden",
-          inverse ? "bg-primary-deep" : "bg-surface-bright",
-        )}
+      <svg
+        viewBox="197 185 638 497"
+        aria-hidden="true"
+        className="h-14 w-[72px] overflow-visible sm:h-[60px] sm:w-[77px]"
       >
-        <Image
-          src="/brand/alpha-logo-on-green.jpeg"
-          alt=""
-          width={1024}
-          height={1024}
-          sizes="116px"
-          loading={inverse ? "lazy" : "eager"}
-          fetchPriority={inverse ? "auto" : "high"}
-          className="absolute left-1/2 top-1/2 h-[116px] w-[116px] max-w-none -translate-x-1/2 -translate-y-[48%] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        <mask
+          id={maskId}
+          x="197"
+          y="185"
+          width="638"
+          height="497"
+          maskUnits="userSpaceOnUse"
+          style={{ maskType: "luminance" }}
+        >
+          <image
+            href="/brand/alpha-wordmark-mask.jpeg"
+            x="0"
+            y="0"
+            width="1024"
+            height="1024"
+          />
+        </mask>
+        <rect
+          x="197"
+          y="185"
+          width="638"
+          height="497"
+          fill="currentColor"
+          mask={`url(#${maskId})`}
         />
-      </span>
+      </svg>
     </Link>
   );
 }
