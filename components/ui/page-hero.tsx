@@ -27,7 +27,7 @@ export function PageHero({
         fetchPriority="high"
         sizes="100vw"
       />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,19,33,0.96)_0%,rgba(4,19,33,0.77)_45%,rgba(4,19,33,0.22)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(1,47,40,0.96)_0%,rgba(1,73,59,0.78)_45%,rgba(1,73,59,0.23)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-primary-deep/75 to-transparent" />
       <div className="container-grid flex min-h-[520px] items-center pb-16 pt-28 lg:min-h-[610px] lg:pt-32">
         <Reveal className="max-w-3xl">

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Stylised stand-in for photography. Renders a navy/industrial gradient
+ * Stylised stand-in for photography. Renders a forest/industrial gradient
  * with a fine structural grid + diagonal hatch, matching the brand's
  * "technical schematic" language in place of real photography.
  */
@@ -15,10 +15,10 @@ export function MediaBlock({
   label?: string;
 }) {
   const tones: Record<string, string> = {
-    navy: "from-[#12294a] via-[#0e2544] to-[#081a33]",
+    navy: "from-[#0b6d50] via-[#035936] to-[#01493b]",
     steel: "from-[#3a4552] via-[#2a323c] to-[#181d22]",
-    deep: "from-[#0a1c33] via-[#071426] to-[#040c18]",
-    red: "from-[#8f151d] via-[#6d1015] to-[#4a0a0d]",
+    deep: "from-[#035936] via-[#01493b] to-[#012f28]",
+    red: "from-[#138661] via-[#087451] to-[#035936]",
   };
 
   return (

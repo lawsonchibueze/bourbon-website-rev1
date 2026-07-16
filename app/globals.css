@@ -3,31 +3,31 @@
 @import "shadcn/tailwind.css";
 
 :root {
-  --surface: #f7f8f9;
-  --surface-dim: #d9dfe4;
+  --surface: #f6f8f5;
+  --surface-dim: #dce4de;
   --surface-bright: #ffffff;
   --surface-container-lowest: #ffffff;
-  --surface-container-low: #f0f3f5;
-  --surface-container: #e8edf0;
-  --surface-container-high: #dfe5e9;
-  --surface-container-highest: #d4dce1;
-  --on-surface: #0b1e2d;
-  --on-surface-variant: #53636f;
-  --outline: #71818c;
-  --outline-variant: #cad3d9;
-  --primary: #082944;
-  --primary-deep: #041321;
-  --primary-container: #0d3b60;
+  --surface-container-low: #eef3ef;
+  --surface-container: #e6ede8;
+  --surface-container-high: #dce6df;
+  --surface-container-highest: #d1ddd5;
+  --on-surface: #10261e;
+  --on-surface-variant: #52675d;
+  --outline: #73877d;
+  --outline-variant: #ccd8d1;
+  --primary: #035936;
+  --primary-deep: #01493b;
+  --primary-container: #096d4d;
   --on-primary: #ffffff;
-  --on-primary-container: #b8d5e7;
-  --secondary: #d3212d;
-  --secondary-container: #ef3d48;
+  --on-primary-container: #c7ead8;
+  --secondary: #087451;
+  --secondary-container: #0f9165;
   --on-secondary: #ffffff;
-  --tertiary: #66c5dd;
-  --on-tertiary: #032735;
+  --tertiary: #9ad7bd;
+  --on-tertiary: #012f28;
   --error: #b3261e;
-  --background: #f7f8f9;
-  --on-background: #0b1e2d;
+  --background: #f6f8f5;
+  --on-background: #10261e;
   --radius: 0.25rem;
 }
 
@@ -120,8 +120,8 @@ button {
 
 .technical-grid-light {
   background-image:
-    linear-gradient(rgba(8, 41, 68, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(8, 41, 68, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(3, 89, 54, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 89, 54, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 

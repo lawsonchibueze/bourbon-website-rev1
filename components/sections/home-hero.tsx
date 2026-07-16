@@ -23,7 +23,7 @@ export default function HomeHero() {
         sizes="100vw"
         className="hero-drift -z-20 object-cover object-[65%_center]"
       />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,19,33,0.97)_0%,rgba(4,19,33,0.84)_38%,rgba(4,19,33,0.22)_78%,rgba(4,19,33,0.08)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(1,47,40,0.97)_0%,rgba(1,73,59,0.84)_38%,rgba(1,73,59,0.24)_78%,rgba(1,73,59,0.08)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-64 bg-gradient-to-t from-primary-deep via-primary-deep/70 to-transparent" />
       <div className="technical-grid absolute inset-y-0 left-0 -z-10 w-[46%] opacity-25" />
 

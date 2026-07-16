@@ -41,7 +41,7 @@ export default function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full border-b border-outline-variant/55 bg-white/95 backdrop-blur-xl transition-shadow duration-300",
-        scrolled && "shadow-[0_14px_40px_rgba(4,19,33,0.07)]",
+        scrolled && "shadow-[0_14px_40px_rgba(1,73,59,0.08)]",
       )}
       style={{ viewTransitionName: "site-header" }}
     >
