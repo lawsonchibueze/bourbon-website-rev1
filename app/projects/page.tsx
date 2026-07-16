@@ -122,7 +122,7 @@ export default function ProjectsPage() {
           {engagementModels.map((model, index) => (
             <StaggerItem
               key={model.number}
-              className="grid overflow-hidden bg-white shadow-[0_18px_60px_rgba(4,19,33,0.07)] lg:grid-cols-[0.92fr_1.08fr]"
+              className="grid overflow-hidden bg-surface-bright shadow-[0_18px_60px_rgba(4,19,33,0.07)] lg:grid-cols-[0.92fr_1.08fr]"
             >
               <div className={index % 2 === 1 ? "lg:order-2" : undefined}>
                 <SiteImage
@@ -134,7 +134,7 @@ export default function ProjectsPage() {
               </div>
               <div className="p-7 sm:p-10 lg:p-12">
                 <div className="flex items-center justify-between">
-                  <div className="grid h-11 w-11 place-items-center bg-primary text-white">
+                  <div className="grid h-11 w-11 place-items-center bg-primary-container text-white">
                     <model.icon className="h-5 w-5" />
                   </div>
                   <span className="font-heading text-5xl font-bold text-primary/8">

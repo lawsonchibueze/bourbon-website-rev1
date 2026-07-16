@@ -31,6 +31,34 @@
   --radius: 0.25rem;
 }
 
+.dark {
+  --surface: #071711;
+  --surface-dim: #04110c;
+  --surface-bright: #0d2119;
+  --surface-container-lowest: #0a1c15;
+  --surface-container-low: #10271e;
+  --surface-container: #153126;
+  --surface-container-high: #1a392c;
+  --surface-container-highest: #244638;
+  --on-surface: #eef7f2;
+  --on-surface-variant: #acc2b6;
+  --outline: #879b91;
+  --outline-variant: #30483b;
+  --primary: #9ad7bd;
+  --primary-deep: #002c24;
+  --primary-container: #096d4d;
+  --on-primary: #052218;
+  --on-primary-container: #d5f1e4;
+  --secondary: #0f9165;
+  --secondary-container: #12a675;
+  --on-secondary: #ffffff;
+  --tertiary: #9ad7bd;
+  --on-tertiary: #052218;
+  --error: #ffb4ab;
+  --background: #071711;
+  --on-background: #eef7f2;
+}
+
 @theme inline {
   --color-surface: var(--surface);
   --color-surface-dim: var(--surface-dim);
@@ -70,7 +98,12 @@
 }
 
 html {
+  color-scheme: light;
   scroll-padding-top: 88px;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -80,6 +113,9 @@ body {
   color: var(--on-background);
   font-family: var(--font-body);
   text-rendering: optimizeLegibility;
+  transition:
+    background-color 240ms ease,
+    color 240ms ease;
 }
 
 a,
@@ -123,6 +159,16 @@ button {
     linear-gradient(rgba(3, 89, 54, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(3, 89, 54, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+.dark .technical-grid-light {
+  background-image:
+    linear-gradient(rgba(154, 215, 189, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 215, 189, 0.06) 1px, transparent 1px);
+}
+
+.dark .text-secondary {
+  color: var(--tertiary);
 }
 
 .hairline {

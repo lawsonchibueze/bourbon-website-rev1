@@ -65,7 +65,7 @@ export default function ContactPage() {
                   key={item.title}
                   className="grid grid-cols-[42px_1fr] gap-4 border-t border-outline-variant/65 pt-5"
                 >
-                  <div className="grid h-10 w-10 place-items-center bg-primary text-white">
+                  <div className="grid h-10 w-10 place-items-center bg-primary-container text-white">
                     <item.icon className="h-4 w-4" />
                   </div>
                   <div>

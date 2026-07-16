@@ -184,7 +184,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="container-grid py-20 lg:py-24">
-        <Reveal className="relative overflow-hidden bg-white px-6 py-12 shadow-[0_20px_60px_rgba(4,19,33,0.07)] sm:px-10 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-14 lg:py-14">
+        <Reveal className="relative overflow-hidden bg-surface-bright px-6 py-12 shadow-[0_20px_60px_rgba(4,19,33,0.07)] sm:px-10 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-14 lg:py-14">
           <div className="absolute inset-y-0 left-0 w-1 bg-secondary" />
           <div>
             {/* <p className="eyebrow text-secondary">Commercial enquiry</p> */}

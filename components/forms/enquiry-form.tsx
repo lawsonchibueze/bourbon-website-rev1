@@ -40,8 +40,8 @@ export function EnquiryForm() {
 
   if (brief) {
     return (
-      <div className="bg-white p-7 shadow-[0_18px_60px_rgba(4,19,33,0.08)] sm:p-10">
-        <div className="grid h-12 w-12 place-items-center bg-primary text-white">
+      <div className="bg-surface-bright p-7 shadow-[0_18px_60px_rgba(4,19,33,0.08)] sm:p-10">
+        <div className="grid h-12 w-12 place-items-center bg-primary-container text-white">
           <Check className="h-5 w-5" />
         </div>
         <p className="eyebrow mt-7 text-secondary">Project brief prepared</p>
@@ -76,7 +76,7 @@ export function EnquiryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-7 shadow-[0_18px_60px_rgba(4,19,33,0.08)] sm:p-10"
+      className="bg-surface-bright p-7 shadow-[0_18px_60px_rgba(4,19,33,0.08)] sm:p-10"
     >
       {/* <p className="eyebrow text-secondary">Project brief builder</p> */}
       <h2 className="mt-3 font-heading text-2xl font-bold text-primary">

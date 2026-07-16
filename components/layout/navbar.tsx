@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -40,7 +41,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-outline-variant/55 bg-white/95 backdrop-blur-xl transition-shadow duration-300",
+        "sticky top-0 z-50 w-full border-b border-outline-variant/55 bg-surface-bright/95 backdrop-blur-xl transition-shadow duration-300",
         scrolled && "shadow-[0_14px_40px_rgba(1,73,59,0.08)]",
       )}
       style={{ viewTransitionName: "site-header" }}
@@ -73,7 +74,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           <Button asChild variant="dark" size="sm">
             <Link href="/contact">
               Discuss a requirement <ArrowUpRight className="h-3.5 w-3.5" />
@@ -81,16 +83,19 @@ export default function Navbar() {
           </Button>
         </div>
 
-        <button
-          type="button"
-          className="grid h-11 w-11 place-items-center rounded-sm border border-outline-variant text-primary transition-colors hover:bg-surface-container-low focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary lg:hidden"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="grid h-11 w-11 place-items-center rounded-sm border border-outline-variant text-primary transition-colors hover:bg-surface-container-low focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -101,7 +106,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-outline-variant/55 bg-white lg:hidden"
+            className="overflow-hidden border-t border-outline-variant/55 bg-surface-bright lg:hidden"
           >
             <nav className="container-grid flex flex-col py-4" aria-label="Mobile">
               {links.map((link, index) => (
